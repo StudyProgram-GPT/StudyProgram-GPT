@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GPTベースのプログラミング学習Webアプリ</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>問題</h1>
+    <p>Hello Worldと出力されるプログラムを記述してください。</p>
+
+    <h2>コードを記述</h2>
+    <textarea id="code" rows="10" cols="50"></textarea><br>
+    <button id="submit">コードを送信</button>
+
+    <h2>結果</h2>
+    <div id="result"></div>
+    
+    <script>
+        $(document).ready(function() {
+            $("#submit").click(function() {
+                const code = $("#code").val();
+                $.post("/submit_code", {code: code}, function(data) {
+                    $("#result").html(data.result);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
