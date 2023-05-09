@@ -19,7 +19,7 @@
         $(document).ready(function() {
             $("#submit").click(function() {
                 const code = $("#code").val();
-                $.post("/submit_code", {code: code}, function(data) {
+                $.post("//content", {code: code}, function(data) {
                     $("#result").html(data.result);
                 });
             });
